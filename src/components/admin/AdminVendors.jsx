@@ -12,7 +12,6 @@ const AdminVendors = () => {
 		`/${category}/`,
 		'position'
 	)
-    console.log(vendors)
 
   return (
     <>
@@ -20,7 +19,7 @@ const AdminVendors = () => {
         <AdminVendorsForm />
       </AdminModal>
       <AdminHeaderBlock title="Производители" />
-      <AdminGridCards data={vendors} category={category}/>
+      <AdminGridCards data={vendors} linkDelete={`/${category}/`}/>
     </>
   );
 };

@@ -14,6 +14,8 @@ import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import AdminVendors from './components/admin/AdminVendors'
+import AdminCollection from './components/admin/AdminCollection'
+import AdminColors from './components/admin/AdminColors'
 
 const App = () => {
 	const categories = useSelector(state => state.categories.categories)
@@ -115,6 +117,8 @@ const App = () => {
 				<Route path='/admin' element={<AdminLayout />}>
 					<Route index element={<AdminPage />}/>
 					<Route path=":category" element={<AdminVendors />} />
+					<Route path=":category/:vendor" element={<AdminCollection />} />
+					<Route path=":category/:vendor/:collection" element={<AdminColors />} />
 				</Route>
 				{/* <Route path={'/login'} element={<LoginPage />} /> */}
 			</>

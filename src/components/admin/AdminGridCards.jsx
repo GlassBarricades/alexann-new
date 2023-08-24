@@ -4,15 +4,13 @@ import {
   Text,
   Image,
   Badge,
-  ActionIcon,
   Group,
   Stack,
 } from "@mantine/core";
-import { Trash, Pencil, Eye, EyeOff } from "tabler-icons-react";
 import { Link } from "react-router-dom";
 import AdminPanelSettings from "./AdminPanelSettings";
 
-const AdminGridCards = ({ data, category }) => {
+const AdminGridCards = ({ data, linkDelete }) => {
   return (
     <SimpleGrid
       cols={5}
@@ -29,7 +27,7 @@ const AdminGridCards = ({ data, category }) => {
       {data.map((item) => {
         return (
             <Stack spacing={0}  key={item.uuid}>
-            <Card shadow="sm" padding="xs" component={Link} to={item.name}>
+            <Card shadow="sm" padding="xs" component={Link} to={item.link}>
               <Card.Section>
                 <Image fit="contain" src={item.image} height={160} alt={item.name} />
               </Card.Section>
@@ -48,7 +46,7 @@ const AdminGridCards = ({ data, category }) => {
             </Card>
             <AdminPanelSettings 
             element={item}
-            deleteLink={`/${category}/${item.link}`}
+            deleteLink={`${linkDelete}${item.link}`}
         />
         </Stack>
         );

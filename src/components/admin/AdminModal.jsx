@@ -9,6 +9,7 @@ const AdminModal = memo(({ children }) => {
   const dispatch = useDispatch();
   return (
     <Modal
+    size="100%"
       opened={open}
       onClose={() => dispatch(closeModal())}
       title={edit ? "Редактирование элемента" : "Добавление элемента"}
