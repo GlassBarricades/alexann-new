@@ -16,6 +16,10 @@ import { useEffect } from 'react'
 import AdminVendors from './components/admin/AdminVendors'
 import AdminCollection from './components/admin/AdminCollection'
 import AdminColors from './components/admin/AdminColors'
+import CatalogVendors from './components/catalog/CatalogVendors'
+import CatalogCollection from './components/catalog/CatalogCollection'
+import CatalogColors from './components/catalog/CatalogColors'
+import CatalogColor from './components/catalog/CatalogColor'
 
 const App = () => {
 	const categories = useSelector(state => state.categories.categories)
@@ -31,6 +35,10 @@ const App = () => {
 				<Route path='/' element={<LayoutPage />}>
 					<Route index element={<HomePage />} />
 					<Route path='catalog' element={<CatalogPage />} />
+					<Route path='catalog/:category' element={<CatalogVendors />} />
+					<Route path='catalog/:category/:vendor' element={<CatalogCollection />} />
+					<Route path='catalog/:category/:vendor/:collection' element={<CatalogColors />} />
+					<Route path='catalog/:category/:vendor/:collection/:color' element={<CatalogColor />} />
 					{/* <Route path='/order' element={<OrderPage />} />
 					<Route path='/contacts' element={<ContactPage />} />
 					<Route

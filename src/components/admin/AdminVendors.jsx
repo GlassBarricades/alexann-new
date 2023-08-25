@@ -1,4 +1,3 @@
-import { Text } from "@mantine/core";
 import { useParams } from "react-router-dom";
 import AdminHeaderBlock from "./AdminHeaderBlock";
 import AdminVendorsForm from "./AdminVendorsForm";
@@ -19,7 +18,7 @@ const AdminVendors = () => {
         <AdminVendorsForm />
       </AdminModal>
       <AdminHeaderBlock title="Производители" />
-      <AdminGridCards data={vendors} linkDelete={`/${category}/`} imageFit="contain"/>
+      <AdminGridCards data={vendors} linkDelete={`/${category}/`} imageFit="cover"/>
     </>
   );
 };
