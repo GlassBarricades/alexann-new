@@ -19,7 +19,7 @@ const AdminCollection = () => {
 				<AdminCollectionForm />
 			</AdminModal>
 			<AdminHeaderBlock title={`Коллекции ${category} ${vendor}`}/>
-            <AdminGridCards data={vendors} linkDelete={`/${category}/${vendor}/collections/`}/>
+            <AdminGridCards data={vendors} linkDelete={`/${category}/${vendor}/collections/`} imageFit="cover" />
 		</>
     )
 }

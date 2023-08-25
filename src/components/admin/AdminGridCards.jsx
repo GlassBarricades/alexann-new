@@ -9,8 +9,9 @@ import {
 } from "@mantine/core";
 import { Link } from "react-router-dom";
 import AdminPanelSettings from "./AdminPanelSettings";
+import AdminCard from "./AdminCard";
 
-const AdminGridCards = ({ data, linkDelete }) => {
+const AdminGridCards = ({ data, linkDelete, imageFit }) => {
   return (
     <SimpleGrid
       cols={5}
@@ -27,23 +28,7 @@ const AdminGridCards = ({ data, linkDelete }) => {
       {data.map((item) => {
         return (
             <Stack spacing={0}  key={item.uuid}>
-            <Card shadow="sm" padding="xs" component={Link} to={item.link}>
-              <Card.Section>
-                <Image fit="contain" src={item.image} height={160} alt={item.name} />
-              </Card.Section>
-
-              <Group position="apart" align="end">
-                <Text weight={500} size="md" mt="md">
-                  {item.name}
-                </Text>
-                <Badge
-                  variant="outline"
-                  align="center"
-                >
-                  {item.position}
-                </Badge>
-              </Group>
-            </Card>
+              <AdminCard key={item.uuid} item={item} imageFit={imageFit} />
             <AdminPanelSettings 
             element={item}
             deleteLink={`${linkDelete}${item.link}`}

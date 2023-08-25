@@ -19,7 +19,7 @@ const AdminVendors = () => {
         <AdminVendorsForm />
       </AdminModal>
       <AdminHeaderBlock title="Производители" />
-      <AdminGridCards data={vendors} linkDelete={`/${category}/`}/>
+      <AdminGridCards data={vendors} linkDelete={`/${category}/`} imageFit="contain"/>
     </>
   );
 };

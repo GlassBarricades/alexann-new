@@ -4,16 +4,20 @@ import AdminCategoryForm from './AdminCategoryForm'
 import AdminModal from './AdminModal'
 import AdminHeaderBlock from './AdminHeaderBlock'
 import AdminRow from './AdminRow'
+import { useParams } from 'react-router-dom'
 
 const AdminCategory = () => {
 	const [categories, loading] = useFetchSortedData(
 		`/category/`,
 		'position'
 	)
-
-	const rows = categories.map(element => (
-		<AdminRow key={element.uuid} element={element} variant='category' />
-	))
+		const rows = categories.map(element => (
+			<AdminRow
+				key={element.uuid}
+				element={element}
+				deleteLink={`/category/${element.link}`}
+			/>
+		))
 
 	return (
 		<>

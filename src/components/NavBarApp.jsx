@@ -1,6 +1,7 @@
 import { Anchor, createStyles, Navbar, ScrollArea } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import useFetchSortedData from "../hooks/useFetchSortedData";
 
 const useStyles = createStyles((theme) => ({
   links: {
@@ -42,8 +43,11 @@ const useStyles = createStyles((theme) => ({
 
 const NavBarApp = ({ linksMain, opened, setOpened, admin }) => {
   const { classes } = useStyles();
-  const categories = useSelector(state => state.categories.categories)
-  console.log(categories)
+  // const categories = useSelector(state => state.categories.categories)
+  const [categories, loading] = useFetchSortedData(
+		`/category/`,
+		'position'
+	)
 
   const items = linksMain.map((link, indx) => {
     return (
@@ -59,7 +63,7 @@ const NavBarApp = ({ linksMain, opened, setOpened, admin }) => {
     );
   });
 
-  const itemsAdmin = categories.map((item) => {
+  const itemsAdmin = categories ? categories.map((item) => {
     return (
       <Anchor
         component={NavLink}
@@ -71,7 +75,7 @@ const NavBarApp = ({ linksMain, opened, setOpened, admin }) => {
         {item.name}
       </Anchor>
     );
-  });
+  }) : undefined
 
   return (
     <Navbar
