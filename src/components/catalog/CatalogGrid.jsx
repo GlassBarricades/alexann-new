@@ -1,11 +1,11 @@
 import { SimpleGrid } from "@mantine/core";
 import CatalogCard from "./CatalogCard";
 
-const CatalogGrid = ({data}) => {
+const CatalogGrid = ({data, variant}) => {
 
   return (
     <SimpleGrid
-      cols={5}
+      cols={variant === "colors" ? 3 : 5}
       spacing="lg"
       breakpoints={[
         { maxWidth: "md", cols: 3, spacing: "md" },

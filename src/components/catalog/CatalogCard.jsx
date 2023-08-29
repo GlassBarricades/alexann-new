@@ -8,6 +8,7 @@ const CatalogCard = ({element}) => {
       padding="xl"
       component={Link}
       to={element.link}
+      style={{maxHeight: 300}}
     >
       <Card.Section>
         <Image
