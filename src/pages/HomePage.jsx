@@ -1,8 +1,13 @@
 import { Text } from "@mantine/core"
+import HeroSection from "../components/landing/HeroSection";
+import CarouselCategotiesSection from "../components/landing/CarouselCategotiesSection";
 
 const HomePage = () => {
     return (
-        <Text>Home</Text>
+        <>
+            <HeroSection />
+            <CarouselCategotiesSection />
+        </>
     )
 }
 export default HomePage;

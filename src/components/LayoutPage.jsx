@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { AppShell, useMantineTheme } from '@mantine/core'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import { HeaderSimple } from './Header'
 import NavBarApp from './NavBarApp'
 
 const App = () => {
 	const theme = useMantineTheme()
 	const [opened, setOpened] = useState(false)
+	const {pathname} = useLocation()
 
 	const linksMain = [
 		{
@@ -34,6 +35,7 @@ const App = () => {
 
 	return (
 		<AppShell
+		padding={pathname === "/" ? 0 : undefined}
 			styles={{
 				main: {
 					background:
@@ -41,6 +43,7 @@ const App = () => {
 							? theme.colors.dark[8]
 							: theme.colors.gray[0],
 				},
+				
 			}}
 			navbarOffsetBreakpoint={5000}
 			asideOffsetBreakpoint='sm'
