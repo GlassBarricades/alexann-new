@@ -24,8 +24,8 @@ const CatalogColors = () => {
         cols={2}
         breakpoints={[{ maxWidth: "md", cols: 1, spacing: "md" }]}
       >
+        <CatalogGrid data={colors} variant="colors"/>
         <AdminDetailsCollection collectionDetails={collectionData} />
-        <CatalogGrid data={colors} variant="colors" />
       </SimpleGrid>
     </>
   );

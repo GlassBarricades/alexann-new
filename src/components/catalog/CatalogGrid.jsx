@@ -10,11 +10,11 @@ const CatalogGrid = ({data, variant}) => {
       breakpoints={[
         { maxWidth: "md", cols: 3, spacing: "md" },
         { maxWidth: "sm", cols: 2, spacing: "sm" },
-        { maxWidth: "xs", cols: 1, spacing: "sm" },
+        { maxWidth: "xs", cols: 2, spacing: "sm" },
       ]}
     >
       {data.map((item) => {
-        return <CatalogCard key={item.uuid} element={item} />;
+        return <CatalogCard key={item.uuid} element={item} variant={variant}/>;
       })}
     </SimpleGrid>
   );
